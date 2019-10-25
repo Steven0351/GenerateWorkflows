@@ -96,7 +96,13 @@ struct Workflow {
       let ciYaml = """
       name: CI
       
-      on: [push, pull_request]
+      on:
+        push:
+          paths-ignore:
+          - "*.md"
+        pull_request:
+          paths-ignore:
+          - "*.md"
       
       jobs:
         build:
@@ -114,6 +120,7 @@ struct Workflow {
                 -sdk iphonesimulator
                 -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.0'
                 test | xcpretty
+      
       """
       try ciYaml.write(to: url.appendingPathComponent("main.yml"), atomically: true, encoding: .utf8)
     }
@@ -168,6 +175,7 @@ struct Workflow {
                 with:
                   personal_access_token: ${{ secrets.ACCESS_TOKEN }}
                   config: .jazzy.yml
+
         """
       
       try docGenYaml.write(to: url.appendingPathComponent("docsGen.yml"), atomically: true, encoding: .utf8)
