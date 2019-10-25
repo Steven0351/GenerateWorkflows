@@ -1,0 +1,8 @@
+.DS_Store
+.build/
+.github/
+.swiftpm/
+/Packages
+/*.xcodeproj
+xcuserdata/
+.jazzy.yml
