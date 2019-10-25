@@ -110,7 +110,7 @@ struct Workflow {
             - name: Run iOS Framework Tests
               run: >-
                 xcodebuild -project \(projectName).xcodeproj
-                -target \(projectName)
+                -scheme \(projectName)-Package
                 -sdk iphonesimulator
                 -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.0'
                 test | xcpretty
