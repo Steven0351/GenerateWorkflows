@@ -101,8 +101,6 @@ struct Workflow {
           paths-ignore:
           - "*.md"
         pull_request:
-          paths-ignore:
-          - "*.md"
       
       jobs:
         build:
